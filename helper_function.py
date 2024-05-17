@@ -105,7 +105,7 @@ def test_iter(max_weight):
     print("Test_Score",f'You Win {num_win} of Total {TEST_ITER}')
     print("Test_Score",f'The Accuracy = {num_win/TEST_ITER *100 :.2f}')
 
-    plot_test("//log//Test_Score.csv")
+    plot_test("Test_Score")
 
 
 
