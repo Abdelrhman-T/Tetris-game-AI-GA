@@ -92,7 +92,7 @@ def test_iter(max_weight):
 
         optimal_weights = max_weight
         chromo = ga.Chromosome(optimal_weights)
-        game_state = game.run_game_AI(chromo, speed=9999999999999999999999, max_score=100000, no_show=True)
+        game_state = game.run_game_AI(chromo, speed=600, max_score=100000, no_show=False)
         SCORE_Arr.append(game_state[2])
         
         write_in_file("Test_Score", [i,game_state[2]])
@@ -105,7 +105,7 @@ def test_iter(max_weight):
     print("Test_Score",f'You Win {num_win} of Total {TEST_ITER}')
     print("Test_Score",f'The Accuracy = {num_win/TEST_ITER *100 :.2f}')
 
-    plot_test("//log//Test_Score.csv")
+    plot_test("Test_Score")
 
 
 

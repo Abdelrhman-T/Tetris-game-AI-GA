@@ -1,5 +1,5 @@
 import random, time, pygame, sys
-from helper_function import plot_best_two_chromo
+from helper_function import *
 from pygame.locals import *
 
 ##############################################################################
@@ -376,7 +376,8 @@ def run_game_AI(chromosome, speed, max_score = 20000, no_show = False):
             if event.type == pygame.QUIT:
                 print ("Game exited by user")
                 plot_best_two_chromo("Train_Score")
-
+                plot_best_two_chromo_seasonality("Train_Score")
+                plot_test("Test_Score")
                 exit()
 
         if falling_piece == None:

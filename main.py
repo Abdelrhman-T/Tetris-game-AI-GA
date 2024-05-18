@@ -67,7 +67,7 @@ if __name__ == "__main__":
         game.main()
     
     elif (palyer=="2"):
-        main(True)
+        main(False)
 
     elif (palyer=="3"):
         # 1st
