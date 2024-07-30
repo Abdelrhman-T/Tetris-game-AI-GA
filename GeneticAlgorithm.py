@@ -41,12 +41,14 @@ class GA:
             game_state = game.run_game_AI(chrom, 1000, 200000, True)
             chrom.calc_fitness(game_state)
 
-    def selection(self, population):
-        score = np.array([chrom.score for chrom in population])
+    def selection(self, population,num_offspring):
+        pop = sorted(population, key = lambda x: x.score ,reverse=True)
+        best_pop = pop[:num_offspring+1]
+        score = np.array([chrom.score for chrom in best_pop])
         total = score.sum()
         prob = (score / total)
-        indices = np.random.choice(np.arange(len(population)), size=len(population), p=prob)
-        population = np.array(population)
+        indices = np.random.choice(np.arange(len(best_pop)), size=len(best_pop), p=prob)
+        population = np.array(best_pop)
         return population[indices]
 
     def crossover(self,selected_pop, pc=0.4):
@@ -64,7 +66,7 @@ class GA:
                 new_chromosomes[c2].weights[cut_point:] = temp
         return new_chromo
 
-    def mutation(self,population,mutation_rate=0.1):
+    def mutation(self,population,mutation_rate=0.01):
         N_genes = len(population[0].weights)
         new_chromo = [copy.deepcopy(c) for c in population]
         point = np.random.randint(0,N_genes)
@@ -73,7 +75,6 @@ class GA:
                 new_chromo[i].weights[point] = random.uniform(-50,50)
                 
         return new_chromo
-
 
 
 

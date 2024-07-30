@@ -375,9 +375,8 @@ def run_game_AI(chromosome, speed, max_score = 20000, no_show = False):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 print ("Game exited by user")
-                plot_best_two_chromo("Train_Score")
-                plot_best_two_chromo_seasonality("Train_Score")
-                plot_test("Test_Score")
+                # plot_best_two_chromo("Train_Score")
+                # plot_best_two_chromo_seasonality("Train_Score")
                 exit()
 
         if falling_piece == None:
