@@ -70,12 +70,16 @@ def main_menu():
     root.title("Tetris AI Trainer")
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
-    window_width = int(screen_width * 0.3)
+
+    window_width = int(screen_width * 0.23)
     window_height = int(screen_height * 0.3)
     root.geometry(f"{window_width}x{window_height}")
 
-    root.configure(bg='black')
+    position_x = (screen_width - window_width) // 2
+    position_y = (screen_height - window_height) // 2
+    root.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")
 
+    root.configure(bg='black')
 
     # Configure Label and Button styles
     label = tk.Label(root, text="Who do you want to play?", bg='black', fg='red', font=('Arial', 20))
